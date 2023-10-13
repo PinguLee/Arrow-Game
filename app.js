@@ -5,20 +5,31 @@ const contentType = {
   'Content-Type': 'text/html',
   'charset': 'utf-8'
 };
-let doc;
+let indexDoc, hardDoc;
 
 fs.readFile("./index.html", (err, data) => {
   if (err) {
     console.error("Error");
   } else {
-    doc = data;
+    indexDoc = data;
+  }
+});
+
+fs.readFile("./hard.html", (err, data) => {
+  if (err) {
+    console.error("Error");
+  } else {
+    hardDoc = data;
   }
 });
 
 const server = http.createServer((request, response) => {
   if (request.method === 'GET' && request.url === '/') {
     response.writeHead(200, contentType);
-    response.end(doc);
+    response.end(indexDoc);
+  } else if (request.method === 'GET' && request.url === '/hard') {
+    response.writeHead(200, contentType);
+    response.end(hardDoc);
   } else {
     response.writeHead(404, contentType);
     response.end('404 ERROR');
