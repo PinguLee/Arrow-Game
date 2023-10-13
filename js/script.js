@@ -27,41 +27,36 @@ startButton.addEventListener('click', () => {
 });
 
 window.addEventListener("keydown", (e) => {
+  const compare = () => {
+    keyBox.children[0].remove();
+    if (keyBox.children[0] === undefined) {
+      startButton.disabled = false;
+    }
+  }
+
   if (keyBox.children[0] !== undefined) {
     switch (e.key) {
       case "ArrowUp":
         if (keyBox.children[0].textContent === keys[1]) {
-          keyBox.children[0].remove();
-          if (keyBox.children[0] === undefined) {
-            startButton.disabled = false;
-          }
+          compare();
         }
         break;
 
       case "ArrowRight":
         if (keyBox.children[0].textContent === keys[2]) {
-          keyBox.children[0].remove();
-          if (keyBox.children[0] === undefined) {
-            startButton.disabled = false;
-          }
+          compare();
         }
         break;
 
       case "ArrowDown":
         if (keyBox.children[0].textContent === keys[3]) {
-          keyBox.children[0].remove();
-          if (keyBox.children[0] === undefined) {
-            startButton.disabled = false;
-          }
+          compare();
         }
         break;
 
       case "ArrowLeft":
         if (keyBox.children[0].textContent === keys[4]) {
-          keyBox.children[0].remove();
-          if (keyBox.children[0] === undefined) {
-            startButton.disabled = false;
-          }
+          kcompare();
         }
         break
     }
