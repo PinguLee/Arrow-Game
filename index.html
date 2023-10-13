@@ -40,6 +40,7 @@
       width: 100vw;
       height: 100vh;
       text-align: center;
+      background-color: skyblue;
     }
 
     #root>h1 {
@@ -120,7 +121,7 @@
     /*
     https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#timers
     브라우저는 setInterval 호출이 5번 이상 중첩된 경우 4ms의 최소 타임아웃을 강제합니다.
-    */
+    */ 
     let interval = setInterval(() => {
       count++;
     }, 0);
