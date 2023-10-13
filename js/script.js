@@ -27,29 +27,32 @@ startButton.addEventListener('click', () => {
 });
 
 window.addEventListener("keydown", (e) => {
-  switch (e.key) {
-    case "ArrowUp":
-      if (keyBox.children[0].textContent === keys[1]) {
-        keyBox.children[0].remove();
-      }
-      break;
-
-    case "ArrowRight":
-      if (keyBox.children[0].textContent === keys[2]) {
-        keyBox.children[0].remove();
-      }
-      break;
-
-    case "ArrowDown":
-      if (keyBox.children[0].textContent === keys[3]) {
-        keyBox.children[0].remove();
-      }
-      break;
-
-    case "ArrowLeft":
-      if (keyBox.children[0].textContent === keys[4]) {
-        keyBox.children[0].remove();
-      }
-      break
+  if (keyBox.children[0] !== undefined) {
+    switch (e.key) {
+      case "ArrowUp":
+        if (keyBox.children[0].textContent === keys[1]) {
+          keyBox.children[0].remove();
+        }
+        break;
+  
+      case "ArrowRight":
+        if (keyBox.children[0].textContent === keys[2]) {
+          keyBox.children[0].remove();
+        }
+        break;
+  
+      case "ArrowDown":
+        if (keyBox.children[0].textContent === keys[3]) {
+          keyBox.children[0].remove();
+        }
+        break;
+  
+      case "ArrowLeft":
+        if (keyBox.children[0].textContent === keys[4]) {
+          keyBox.children[0].remove();
+        }
+        break
+    }
   }
+  
 });
