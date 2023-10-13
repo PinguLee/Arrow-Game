@@ -16,6 +16,11 @@ li {
   flex-direction: column;
   width: 100vw;
   height: 100vh;
+  text-align: center;
+}
+
+#root > h1 {
+  padding: 20px;
 }
 
 #key-Box {
@@ -24,7 +29,13 @@ li {
   background-color: beige;
 }
 
+.key {
+  font-size: 100px;
+  margin: 20px;
+}
+
 .work-Box {
   display: flex;
   flex-direction: column;
+  padding: 20px;
 }
