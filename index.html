@@ -100,7 +100,7 @@
     // 지난 시간
     let count = 0;
 
-    // 시작 버튼 입력
+    // 엘리먼트 생성
     const events = () => {
       startButton.disabled = true;
       for (let i = 0; i < 4; i++) {
@@ -118,15 +118,13 @@
       return Math.floor(Math.random() * (max - min + 1)) + min;
     };
 
-    /*
-    https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#timers
-    브라우저는 setInterval 호출이 5번 이상 중첩된 경우 4ms의 최소 타임아웃을 강제합니다.
-    */
+    // 타이머
     let interval = setInterval(() => {
       count++;
     }, 0);
     clearInterval(interval);
 
+    // 시작 버튼 입력
     startButton.addEventListener('click', () => {
       interval = setInterval(() => {
         ++count;
@@ -146,6 +144,7 @@
         }
       }
 
+      // 엘리먼트가 있는지 확인
       if (keyBox.children[0] !== undefined) {
         // 입력 받은 값 비교
         switch (e.key) {
