@@ -27,5 +27,26 @@ startButton.addEventListener('click', () => {
 });
 
 window.addEventListener("keydown", (e) => {
+  switch (e) {
+    case "ArrowUp":
+
+    break;
+
+    case "ArrowLeft":
+
+    break;
+
+    case ArrowDown:
+
+    break;
+
+    case "ArrowRight":
+
+    break
+  }
+  
   console.log(e);
+  
+  
+  
 });
