@@ -1,8 +1,12 @@
 const fs = require('fs');
 const http = require("http");
+const contentType = {
+  'Content-Type': 'text/html',
+  'charset': 'utf-8'
+};
 
 http.createServer(function (request, response) {
-  response.writeHead(200, { 'Content-Type': 'text/html' })
+  response.writeHead(200, contentType);
 
   fs.readFile("./index.html", function (err, data) {
     if (err) {
