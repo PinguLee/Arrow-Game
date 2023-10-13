@@ -25,3 +25,7 @@ startButton.addEventListener('click', () => {
     createKey.textContent = key[getRandomOneToFour()];
   }
 });
+
+window.addEventListener("keydown", (e) => {
+  console.log(e);
+});
