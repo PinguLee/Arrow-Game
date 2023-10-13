@@ -26,6 +26,10 @@ startButton.addEventListener('click', () => {
   }
 });
 
+let interval = setInterval(() => {
+
+}, 1000);
+
 window.addEventListener("keydown", (e) => {
   const compare = () => {
     keyBox.children[0].remove();
@@ -56,7 +60,7 @@ window.addEventListener("keydown", (e) => {
 
       case "ArrowLeft":
         if (keyBox.children[0].textContent === keys[4]) {
-          kcompare();
+          compare();
         }
         break
     }
