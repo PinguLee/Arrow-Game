@@ -23,8 +23,6 @@ const server = http.createServer((request, response) => {
     response.writeHead(404, contentType);
     response.end('404 ERROR');
   }
-
-  
 });
 
 server.listen(8080, () => {
