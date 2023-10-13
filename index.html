@@ -5,8 +5,51 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Arrow Key Game</title>
-  <link rel="stylesheet" href=./css/style.css>
-  <script src="./js/script.js" defer></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    li {
+      list-style: none;
+      list-style-type: none;
+    }
+
+    #root {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 100vw;
+      height: 100vh;
+      text-align: center;
+    }
+
+    #root>h1 {
+      padding: 20px;
+    }
+
+    #key-Box {
+      display: flex;
+      flex-direction: row;
+      background-color: beige;
+      width: 420px;
+      height: 160px;
+    }
+
+    .key {
+      font-size: 100px;
+      margin: 20px;
+    }
+
+    .work-Box {
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    }
+  </style>
 </head>
 
 <body>
@@ -17,10 +60,98 @@
     </ul>
     <div class="work-Box">
       <h3>걸린 시간</h3>
-      <label id="count">ㅎ</label>
+      <label id="count">please start</label>
       <button id="start">시작</button>
     </div>
   </div>
+  <script>
+    const date = new Date();
+const root = document.getElementById('root');
+const keyBox = document.getElementById('key-Box');
+const countLabel = document.getElementById('count');
+const startButton = document.getElementById('start');
+
+const keys = {
+  1: '↑',
+  2: '→',
+  3: '↓',
+  4: '←'
+};
+
+let count = 0;
+
+const events = () => {
+  startButton.disabled = true;
+  for (let i = 0; i < 4; i++) {
+    let createKey = document.createElement('li');
+    keyBox.append(createKey);
+    createKey.setAttribute('class', 'key')
+    createKey.textContent = keys[getRandomOneToFour()];
+  }
+};
+
+const getRandomOneToFour = () => {
+  let min = Math.ceil(1);
+  let max = Math.floor(4);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+/*
+https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#timers
+브라우저는 setInterval 호출이 5번 이상 중첩된 경우 4ms의 최소 타임아웃을 강제합니다.
+*/
+let interval = setInterval(() => {
+  count++;
+}, 0);
+clearInterval(interval);
+
+startButton.addEventListener('click', () => {
+  interval = setInterval(() => {
+    ++count;
+  }, 0);
+  events();
+});
+
+window.addEventListener('keydown', (e) => {
+  const compare = () => {
+    keyBox.children[0].remove();
+    if (keyBox.children[0] === undefined) {
+      startButton.disabled = false;
+      countLabel.textContent = `${count}`;
+      clearInterval(interval);
+      count = 0;
+    }
+  }
+
+  if (keyBox.children[0] !== undefined) {
+    switch (e.key) {
+      case 'ArrowUp':
+        if (keyBox.children[0].textContent === keys[1]) {
+          compare();
+        }
+        break;
+
+      case 'ArrowRight':
+        if (keyBox.children[0].textContent === keys[2]) {
+          compare();
+        }
+        break;
+
+      case 'ArrowDown':
+        if (keyBox.children[0].textContent === keys[3]) {
+          compare();
+        }
+        break;
+
+      case 'ArrowLeft':
+        if (keyBox.children[0].textContent === keys[4]) {
+          compare();
+        }
+        break
+    }
+  }
+});
+  </script>
 </body>
 
 </html>
