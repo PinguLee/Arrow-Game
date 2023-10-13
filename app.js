@@ -15,19 +15,16 @@ fs.readFile("./index.html", (err, data) => {
   }
 });
 
-http.createServer((request, response) => {
-
+const server = http.createServer((request, response) => {
   if (request.method === 'GET' && request.url === '/') {
     response.writeHead(200, contentType);
     response.end(doc);
   } else {
     response.writeHead(404, contentType);
-    response.end(doc);
+    response.end('404 ERROR');
   }
 
   
-});
-
 });
 
 server.listen(8080, () => {
