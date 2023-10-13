@@ -3,7 +3,7 @@ const keyBox = document.getElementById('key-Box');
 const countLabel = document.getElementById('count');
 const startButton = document.getElementById('start');
 
-const key = {
+const keys = {
   1: "↑",
   2: "→",
   3: "↓",
@@ -22,14 +22,16 @@ startButton.addEventListener('click', () => {
     let createKey = document.createElement('li');
     keyBox.append(createKey);
     createKey.setAttribute("class", "key")
-    createKey.textContent = key[getRandomOneToFour()];
+    createKey.textContent = keys[getRandomOneToFour()];
   }
 });
 
 window.addEventListener("keydown", (e) => {
   switch (e.key) {
     case "ArrowUp":
-      console.log("a");
+      if (keyBox.children[0].textContent === keys[1]) {
+        keyBox.children[0].remove();
+      }
       break;
 
     case "ArrowLeft":
