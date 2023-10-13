@@ -20,6 +20,6 @@ startButton.addEventListener('click', () => {
   for (let i = 0; i < 4; i++) {
     let createKey = document.createElement('li');
     keyBox.append(createKey);
-    console.log(key[getRandomOneToFour()]);
+    createKey.textContent = key[getRandomOneToFour()];
   }
 });
