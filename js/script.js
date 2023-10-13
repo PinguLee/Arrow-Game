@@ -34,16 +34,22 @@ window.addEventListener("keydown", (e) => {
       }
       break;
 
-    case "ArrowLeft":
-
+    case "ArrowRight":
+      if (keyBox.children[0].textContent === keys[2]) {
+        keyBox.children[0].remove();
+      }
       break;
 
     case "ArrowDown":
-
+      if (keyBox.children[0].textContent === keys[3]) {
+        keyBox.children[0].remove();
+      }
       break;
 
-    case "ArrowRight":
-
+    case "ArrowLeft":
+      if (keyBox.children[0].textContent === keys[4]) {
+        keyBox.children[0].remove();
+      }
       break
   }
 });
