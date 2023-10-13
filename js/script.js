@@ -6,7 +6,12 @@ const createKey = document.createElement('li');
 
 createKey.setAttribute('class', 'key');
 
-const key = [1, 2, 3, 4];
+const key = {
+  1:"↑",
+  2:"→",
+  3:"↓",
+  4:"←"
+};
 
 function getRandomInt() {
   let min = Math.ceil(1);
@@ -16,6 +21,6 @@ function getRandomInt() {
 
 startButton.addEventListener('click', ()=>{
   for (let i = 0; i < 4; i++) {
-    console.log(getRandomInt());
+    console.log(key[getRandomInt()]);
   }
 });
