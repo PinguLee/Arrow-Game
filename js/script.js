@@ -21,32 +21,27 @@ startButton.addEventListener('click', () => {
   for (let i = 0; i < 4; i++) {
     let createKey = document.createElement('li');
     keyBox.append(createKey);
-    createKey.setAttribute("class","key") 
+    createKey.setAttribute("class", "key")
     createKey.textContent = key[getRandomOneToFour()];
   }
 });
 
 window.addEventListener("keydown", (e) => {
-  switch (e) {
+  switch (e.key) {
     case "ArrowUp":
-
-    break;
+      console.log("a");
+      break;
 
     case "ArrowLeft":
 
-    break;
+      break;
 
-    case ArrowDown:
+    case "ArrowDown":
 
-    break;
+      break;
 
     case "ArrowRight":
 
-    break
+      break
   }
-  
-  console.log(e);
-  
-  
-  
 });
