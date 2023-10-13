@@ -14,6 +14,8 @@ function getRandomInt() {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-for (let i = 0; i < 4; i++) {
-  console.log(getRandomInt());
-}
+startButton.addEventListener('click', ()=>{
+  for (let i = 0; i < 4; i++) {
+    console.log(getRandomInt());
+  }
+});
