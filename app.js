@@ -1,18 +1,30 @@
 const fs = require('fs');
 const http = require("http");
+
 const contentType = {
   'Content-Type': 'text/html',
   'charset': 'utf-8'
 };
 
-http.createServer(function (request, response) {
-  response.writeHead(200, contentType);
+http.createServer((request, response) => {
 
-  fs.readFile("./index.html", function (err, data) {
-    if (err) {
-      console.error("Error");
-    } else {
-      response.end(data);
-    }
-  });
-}).listen(8080);
+  if (request.method === 'GET' && request.url === '/') {
+    response.writeHead(200, contentType);
+    response.end(data);
+  } else {
+
+  }
+
+  fs.readFile("./index.html", (err, data) => {
+  if (err) {
+    console.error("Error");
+  } else {
+
+  }
+});
+
+});
+
+server.listen(8080, () => {
+  console.log('서버 가동 중');
+});
