@@ -23,4 +23,5 @@
 - HTML 표준에 의거하여 setTimeout() setInterval() 사용 시 지연시간 발생
 ms 가장 근접한 값을 구현할 시 date()를 사용하여 변수에 저장하고 사용 하는 방법도 있음
 
+https://www.figma.com/file/SFKNNcreG4CrkyfMgZ7BFd/Untitled?type=whiteboard&node-id=0%3A1&t=g6r3rZZ7EQaKM10K-1
 https://www.figma.com/proto/iZDF9hgta1vyhrYctINREX/Untitled?type=design&node-id=1-2&t=Kn6fkBtG8mHYiUBx-0&scaling=scale-down&page-id=0%3A1&starting-point-node-id=1%3A2
