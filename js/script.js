@@ -17,6 +17,7 @@ const getRandomOneToFour = () => {
 }
 
 startButton.addEventListener('click', () => {
+  startButton.disabled = true;
   for (let i = 0; i < 4; i++) {
     let createKey = document.createElement('li');
     keyBox.append(createKey);
