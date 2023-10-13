@@ -83,7 +83,6 @@
     </div>
   </div>
   <script>
-
     const root = document.getElementById('root');
     const keyBox = document.getElementById('key-Box');
     const countLabel = document.getElementById('count');
@@ -100,6 +99,7 @@
     // 지난 시간
     let count = 0;
 
+    // 시작 버튼 입력
     const events = () => {
       startButton.disabled = true;
       for (let i = 0; i < 4; i++) {
@@ -110,6 +110,7 @@
       }
     };
 
+    // 1부터 4까지 랜덤 함수
     const getRandomOneToFour = () => {
       let min = Math.ceil(1);
       let max = Math.floor(4);
@@ -132,6 +133,7 @@
       events();
     });
 
+    // 방향키 버튼 입력
     window.addEventListener('keydown', (e) => {
       const compare = () => {
         keyBox.children[0].remove();
