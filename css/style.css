@@ -19,7 +19,9 @@ li {
 }
 
 #key-Box {
-  background-color: brown;
+  display: flex;
+  flex-direction: row;
+  background-color: beige;
 }
 
 .work-Box {
