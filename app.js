@@ -50,13 +50,13 @@ const server = http.createServer((request, response) => {
   if (request.method === 'GET' && request.url === '/') {
     response.writeHead(200, ContentTypeHTML);
     response.end(indexDoc);
-  } else if (request.method === 'GET' && request.url === '/hard') {
+  } else if (request.method === 'GET' && request.url === '/hard.html') {
     response.writeHead(200, ContentTypeHTML);
     response.end(hardDoc);
-  } else if (request.url === '/css/style.css' && request.method === 'GET') {
+  } else if (request.method === 'GET' && request.url === '/static/css/style.css') {
     response.writeHead(200, ContentTypeCSS);
     response.end(styleCSS);
-  } else if (request.url === '/scripts/script.js' && request.method === 'GET') {
+  } else if (request.method === 'GET' && request.url === '/static/scripts/script.js') {
     response.writeHead(200, ContentTypeJavaScript);
     response.end(scriptJavaScript);
   } else {
