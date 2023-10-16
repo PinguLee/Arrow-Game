@@ -13,6 +13,7 @@ const ContentTypeJavaScript = {
 };
 let indexDoc, hardDoc, styleCSS, scriptJavaScript;
 
+
 fs.readFile("./index.html", (err, data) => {
   if (err) {
     console.error("Error");
