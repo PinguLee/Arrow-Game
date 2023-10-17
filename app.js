@@ -17,7 +17,6 @@ const server = http.createServer((request, response) => {
     response.writeHead(200, ContentTypeHTML);
     response.end(fs.readFileSync('./index.html', 'utf8'));
   } else if (request.method === 'GET' && request.url === '/hard') {
-    let data = fsRead('./hard.html');
     response.writeHead(200, ContentTypeHTML);
     response.end(fs.readFileSync('./hard.html', 'utf8'));
   } else if (request.method === 'GET' && request.url === '/static/css/style.css') {
