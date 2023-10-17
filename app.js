@@ -13,31 +13,19 @@ const ContentTypeJavaScript = {
 };
 
 const server = http.createServer((request, response) => {
-  function fsRead(link) {
-    fs.readFile(link, 'utf-8', (err, data) => {
-      if (err) {
-        console.error("Error");
-      } else {
-        return data;
-      }
-    });
-  }
   if (request.method === 'GET' && request.url === '/') {
-    let data = fsRead('./index.html');
     response.writeHead(200, ContentTypeHTML);
-    response.end(data);
+    response.end(fs.readFileSync('./index.html', 'utf8'));
   } else if (request.method === 'GET' && request.url === '/hard') {
     let data = fsRead('./hard.html');
     response.writeHead(200, ContentTypeHTML);
-    response.end(data);
+    response.end(fs.readFileSync('./hard.html', 'utf8'));
   } else if (request.method === 'GET' && request.url === '/static/css/style.css') {
-    let data = fsRead('./static/css/style.css').
     response.writeHead(200, ContentTypeCSS);
-    response.end(data);
+    response.end(fs.readFileSync('./static/css/style.css' , 'utf8'));
   } else if (request.method === 'GET' && request.url === '/static/scripts/script.js') {
-    let data = fsRead('./static/scripts/script.js');
     response.writeHead(200, ContentTypeJavaScript);
-    response.end(data);
+    response.end(fs.readFileSync('./static/scripts/script.js', 'utf8'));
   } else {
     response.writeHead(404, ContentTypeHTML);
     response.end('404 ERROR');
