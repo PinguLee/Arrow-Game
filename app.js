@@ -11,53 +11,33 @@ const ContentTypeCSS = {
 const ContentTypeJavaScript = {
   'Content-Type': 'application/javascript'
 };
-let indexDoc, hardDoc, styleCSS, scriptJavaScript;
-
-fs.readFile("./index.html", (err, data) => {
-  if (err) {
-    console.error("Error");
-  } else {
-    indexDoc = data;
-  }
-});
-
-fs.readFile("./hard.html", (err, data) => {
-  if (err) {
-    console.error("Error");
-  } else {
-    hardDoc = data;
-  }
-});
-
-fs.readFile('./static/css/style.css', 'utf8', (err, data) => {
-  if (err) {
-    console.error("Error");
-  } else {
-    styleCSS = data;
-  }
-});
-
-fs.readFile('./static/scripts/script.js', 'utf8', (err, data) => {
-  if (err) {
-    console.error("Error");
-  } else {
-    scriptJavaScript = data;
-  }
-});
 
 const server = http.createServer((request, response) => {
+  function fsRead(link) {
+    fs.readFile(link, 'utf-8', (err, data) => {
+      if (err) {
+        console.error("Error");
+      } else {
+        return data;
+      }
+    });
+  }
   if (request.method === 'GET' && request.url === '/') {
+    let data = fsRead('./index.html');
     response.writeHead(200, ContentTypeHTML);
-    response.end(indexDoc);
-  } else if (request.method === 'GET' && request.url === '/hard.html') {
+    response.end(data);
+  } else if (request.method === 'GET' && request.url === '/hard') {
+    let data = fsRead('./hard.html');
     response.writeHead(200, ContentTypeHTML);
-    response.end(hardDoc);
+    response.end(data);
   } else if (request.method === 'GET' && request.url === '/static/css/style.css') {
+    let data = fsRead('./static/css/style.css').
     response.writeHead(200, ContentTypeCSS);
-    response.end(styleCSS);
+    response.end(data);
   } else if (request.method === 'GET' && request.url === '/static/scripts/script.js') {
+    let data = fsRead('./static/scripts/script.js');
     response.writeHead(200, ContentTypeJavaScript);
-    response.end(scriptJavaScript);
+    response.end(data);
   } else {
     response.writeHead(404, ContentTypeHTML);
     response.end('404 ERROR');
